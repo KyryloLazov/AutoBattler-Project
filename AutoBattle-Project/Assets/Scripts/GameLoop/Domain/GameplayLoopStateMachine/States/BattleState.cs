@@ -1,13 +1,9 @@
 namespace GameLoop.Domain.GameplayLoopStateMachine.States
 {
-    public class BattleState : IState
+    public class BattleState : GameBaseState
     {
-        private readonly GameContextData _context;
-
-        public BattleState(GameContextData context)
-        {
-            _context = context;
-        }
+        public BattleState(GameContextData gameContextData, InitializationGameLoopStateMachine gameLoopStateMachine) 
+            : base(gameContextData, gameLoopStateMachine) { }
 
         public void OnEnter() { }
         public void OnExit() { }
