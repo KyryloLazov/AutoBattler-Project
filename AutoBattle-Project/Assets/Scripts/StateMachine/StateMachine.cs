@@ -28,6 +28,31 @@ public class StateMachine
         TryEnterStates<TState>();
         isUpdate = true;
     }
+    
+    public void SwitchState(Type stateType)
+    {
+        if (currentStates != null && currentStates.GetType() == stateType)
+            return;
+
+        isUpdate = false;
+        TryExitStates();
+        
+        if (_states.TryGetValue(stateType, out var newState))
+        {
+            currentStates = newState;
+        }
+
+        TryEnterStates();
+        isUpdate = true;
+    }
+    
+    private void TryEnterStates()
+    {
+        if (currentStates != null)
+        {
+            currentStates.OnEnter();
+        }
+    }
 
     private void TryEnterStates<TState>() where TState : IState
     {

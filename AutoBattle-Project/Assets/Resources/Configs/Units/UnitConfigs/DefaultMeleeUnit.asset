@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811e75eaef1b4b6583c72c2e81d9ce37, type: 3}
+  m_Name: DefaultMeleeUnit
+  m_EditorClassIdentifier: Assembly-CSharp::Units.Infrastructure.Config.UnitStatsConfig
+  <UnitName>k__BackingField: Melee
+  <Icon>k__BackingField: {fileID: 0}
+  <LogicScheme>k__BackingField: {fileID: 11400000, guid: d5861895025692f44b6f48f41f92a828, type: 2}
+  <TargetingScheme>k__BackingField: {fileID: 11400000, guid: 88a3c9e98fd70e14b9485f9f9dfff4ad, type: 2}
+  <Health>k__BackingField: 20
+  <Damage>k__BackingField: 5
+  <MoveSpeed>k__BackingField: 3
+  <AttackRange>k__BackingField: 2
+  <AttackCooldown>k__BackingField: 3
+  <Prefab>k__BackingField: {fileID: 1321841758063773051, guid: ea32c89dac570834eaa3db371ede1a64, type: 3}

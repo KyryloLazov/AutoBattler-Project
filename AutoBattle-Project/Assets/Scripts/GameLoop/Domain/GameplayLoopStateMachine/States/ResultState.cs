@@ -5,9 +5,12 @@ namespace GameLoop.Domain.GameplayLoopStateMachine.States
         public ResultState(GameContextData gameContextData, InitializationGameLoopStateMachine gameLoopStateMachine) 
             : base(gameContextData, gameLoopStateMachine) { }
 
-        public void OnEnter() { }
-        public void OnExit() { }
-        public void Update() { }
-        public void FixedUpdate() { }
+        public override void OnEnter()
+        {
+            GameContextData.CurrentPhase.Value = GamePhase.Result;
+        }
+        public override void OnExit() { }
+        public override void Update() { }
+        public override void FixedUpdate() { }
     }
 }

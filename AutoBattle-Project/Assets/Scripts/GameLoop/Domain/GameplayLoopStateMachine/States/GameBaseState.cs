@@ -22,9 +22,9 @@ namespace GameLoop.Domain.GameplayLoopStateMachine.States
 
         public virtual void Update()
         {
-            GameLoopStateMachine.StateHandleChain.HandleState<PlacementStateHandler>();
-            GameLoopStateMachine.StateHandleChain.HandleState<BattleStateHandler>();
-            GameLoopStateMachine.StateHandleChain.HandleState<ResultStateHandler>();
+            // GameLoopStateMachine.StateHandleChain.HandleState<PlacementStateHandler>();
+            // GameLoopStateMachine.StateHandleChain.HandleState<BattleStateHandler>();
+            // GameLoopStateMachine.StateHandleChain.HandleState<ResultStateHandler>();
         }
 
         public virtual void FixedUpdate()
