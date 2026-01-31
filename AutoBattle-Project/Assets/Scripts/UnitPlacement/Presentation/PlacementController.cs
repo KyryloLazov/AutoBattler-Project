@@ -3,6 +3,7 @@ using Units.Domain;
 using Units.Infrastructure.Config;
 using Units.Presentation;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Zenject;
 
 namespace UnitPlacement.Presentation
@@ -34,7 +35,7 @@ namespace UnitPlacement.Presentation
         {
             if (_model.SelectedUnitConfig.Value == null) return;
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !IsPointerOverUI())
             {
                 HandleClick();
             }
@@ -43,6 +44,11 @@ namespace UnitPlacement.Presentation
             {
                 HandleRightClick();
             }
+        }
+        
+        private bool IsPointerOverUI()
+        {
+            return EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
         }
 
         private void HandleClick()
