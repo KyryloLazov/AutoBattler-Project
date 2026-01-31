@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Units.Infrastructure.Config.UnitsDatabase
   <AvailableUnits>k__BackingField:
   - {fileID: 11400000, guid: 1c04d4f97878069488b152aec99c814c, type: 2}
+  - {fileID: 11400000, guid: d905519d6849c15479ac580bb55bde6b, type: 2}
+  - {fileID: 11400000, guid: be1259da63299bf4cab422c68ecd0cca, type: 2}

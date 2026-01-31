@@ -9,7 +9,8 @@ namespace Units.Domain
         public ReactiveProperty<float> Health;
         public ReactiveProperty<bool> IsDead;
         public ReactiveProperty<Transform> Target;
-    
+        
+        public float MaxHp;
         public float AttackRange;
         public float MoveSpeed;
         public float Damage;
@@ -21,7 +22,8 @@ namespace Units.Domain
             Health = new ReactiveProperty<float>(config.Health);
             IsDead = new ReactiveProperty<bool>(false);
             Target = new ReactiveProperty<Transform>(null);
-        
+
+            MaxHp = Health.Value;
             AttackRange = config.AttackRange;
             MoveSpeed = config.MoveSpeed;
             Damage = config.Damage;

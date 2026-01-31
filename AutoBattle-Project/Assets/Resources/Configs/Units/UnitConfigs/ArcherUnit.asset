@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811e75eaef1b4b6583c72c2e81d9ce37, type: 3}
+  m_Name: ArcherUnit
+  m_EditorClassIdentifier: Assembly-CSharp::Units.Infrastructure.Config.UnitStatsConfig
+  <UnitName>k__BackingField: Archer
+  <Icon>k__BackingField: {fileID: 0}
+  <LogicScheme>k__BackingField: {fileID: 11400000, guid: 62f0fde03d22a2b4ea2c2e5ec163bf51, type: 2}
+  <TargetingScheme>k__BackingField: {fileID: 11400000, guid: 88a3c9e98fd70e14b9485f9f9dfff4ad, type: 2}
+  <Health>k__BackingField: 15
+  <Damage>k__BackingField: 3
+  <MoveSpeed>k__BackingField: 2
+  <AttackRange>k__BackingField: 5
+  <AttackCooldown>k__BackingField: 2
+  <Prefab>k__BackingField: {fileID: 2901379440650251313, guid: 84521055f1849254a948676afb48e658, type: 3}
