@@ -9,6 +9,12 @@ namespace Units.Domain.UnitStateMachine.States
         public UnitMoveState(InitializationUnitStateMachine unitStateMachine, UnitFacade unitFacade, ITargetStrategy targetStrategy)
             : base(unitStateMachine, unitFacade, targetStrategy) { }
 
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            Debug.Log("Unit Move State");
+        }
+        
         public override void Update()
         {
             var target = UnitStateMachine.RuntimeData.Target.Value;

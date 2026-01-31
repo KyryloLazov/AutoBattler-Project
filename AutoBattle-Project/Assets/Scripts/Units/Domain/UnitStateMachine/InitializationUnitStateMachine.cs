@@ -9,6 +9,7 @@ namespace Units.Domain.UnitStateMachine
         public StateMachine StateMachine { get; private set; }
         public StateHandleChain HandleChain { get; private set; }
         public UnitRuntimeData RuntimeData { get; private set; }
+        public UnitRegistry UnitRegistry { get; private set; }
         
         private readonly IUnitLogicStrategy _logicStrategy;
         private readonly ITargetStrategy _targetStrategy;
@@ -16,11 +17,13 @@ namespace Units.Domain.UnitStateMachine
         public InitializationUnitStateMachine(
             UnitRuntimeData runtimeData,
             IUnitLogicStrategy logicStrategy,
-            ITargetStrategy targetStrategy)
+            ITargetStrategy targetStrategy,
+            UnitRegistry unitRegistry)
         {
             RuntimeData = runtimeData;
             _logicStrategy = logicStrategy;
             _targetStrategy = targetStrategy;
+            UnitRegistry = unitRegistry;
         }
 
         public void Initialize(UnitFacade facade) 

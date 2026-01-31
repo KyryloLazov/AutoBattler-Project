@@ -7,7 +7,7 @@ namespace GameLoop.Domain.GameplayLoopStateMachine
         public readonly ReactiveProperty<bool> IsBattleRequested = new(false);
         public readonly ReactiveProperty<bool> IsRestartRequested = new(false);
         public readonly ReactiveProperty<bool> IsGameOver = new(false);
-        public readonly ReactiveProperty<string> WinnerInfo = new(string.Empty);
+        public readonly ReactiveProperty<BattleResult> LastBattleResult = new();
         
         public readonly ReactiveProperty<GamePhase> CurrentPhase = new(GamePhase.None);
     }

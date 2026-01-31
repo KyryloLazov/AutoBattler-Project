@@ -14,16 +14,14 @@ namespace Units.Presentation
         public UnitTeam Team { get; private set; }
         public InitializationUnitStateMachine UnitFsm  { get; private set; }
         private GameContextData _gameContext; 
-        private DiContainer _subContainer;
     
         [Inject]
         public void Construct(InitializationUnitStateMachine unitFsm, GameContextData gameContext, UnitTeam team,
-            TeamColorConfig colorConfig, DiContainer subContainer)
+            TeamColorConfig colorConfig)
         {
             UnitFsm = unitFsm;
             _gameContext = gameContext;
             Team = team;
-            _subContainer = subContainer;
             _renderer.material = colorConfig.GetMaterial(team);
         }
 
@@ -34,7 +32,7 @@ namespace Units.Presentation
 
         private void Update()
         {
-            if (_gameContext.IsBattleRequested.Value == false) return; 
+            if (_gameContext.CurrentPhase.Value != GamePhase.Battle) return;
         
             UnitFsm.Tick();
         }

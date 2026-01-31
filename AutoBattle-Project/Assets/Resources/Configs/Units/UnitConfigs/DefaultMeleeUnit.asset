@@ -20,5 +20,5 @@ MonoBehaviour:
   <Damage>k__BackingField: 5
   <MoveSpeed>k__BackingField: 3
   <AttackRange>k__BackingField: 2
-  <AttackCooldown>k__BackingField: 3
+  <AttackCooldown>k__BackingField: 1
   <Prefab>k__BackingField: {fileID: 1321841758063773051, guid: ea32c89dac570834eaa3db371ede1a64, type: 3}

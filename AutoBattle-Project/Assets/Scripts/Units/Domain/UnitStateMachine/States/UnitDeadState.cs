@@ -5,12 +5,24 @@ namespace Units.Domain.UnitStateMachine.States
 {
     public class UnitDeadState : UnitBaseState
     {
-        public UnitDeadState(InitializationUnitStateMachine unitStateMachine, UnitFacade unitFacade, ITargetStrategy targetStrategy) 
-            : base(unitStateMachine, unitFacade, targetStrategy) { }
+        private UnitRegistry _unitRegistry;
+
+        public UnitDeadState(InitializationUnitStateMachine unitStateMachine, UnitFacade unitFacade,
+            ITargetStrategy targetStrategy, UnitRegistry unitRegistry)
+            : base(unitStateMachine, unitFacade, targetStrategy)
+        {
+            _unitRegistry = unitRegistry;
+        }
 
         public override void OnEnter()
         {
-            UnitFacade.gameObject.SetActive(false);
+            base.OnEnter();
+            
+            _unitRegistry.Unregister(UnitFacade);
+            
+            UnitFacade.gameObject.SetActive(false); 
+            
+            UnitStateMachine.RuntimeData.IsDead.Value = true; 
         }
     }
 }

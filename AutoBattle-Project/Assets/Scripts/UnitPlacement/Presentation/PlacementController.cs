@@ -10,19 +10,24 @@ namespace UnitPlacement.Presentation
     public class PlacementController : MonoBehaviour
     {
         [SerializeField] private Camera _camera;
+        [SerializeField] private LayerMask _unitLayer;
+        
         private PlacementModel _model;
         private UnitFactory _unitFactory;
         private BattleFieldService _fieldService;
+        private UnitRegistry _registry;
 
         [Inject]
         public void Construct(
             PlacementModel model,
             UnitFactory unitFactory,
-            BattleFieldService fieldService)
+            BattleFieldService fieldService,
+            UnitRegistry registry)
         {
             _model = model;
             _unitFactory = unitFactory;
             _fieldService = fieldService;
+            _registry = registry;
         }
 
         public void Update()
@@ -32,6 +37,11 @@ namespace UnitPlacement.Presentation
             if (Input.GetMouseButtonDown(0))
             {
                 HandleClick();
+            }
+            
+            if (Input.GetMouseButtonDown(1))
+            {
+                HandleRightClick();
             }
         }
 
@@ -45,6 +55,19 @@ namespace UnitPlacement.Presentation
                 if (_fieldService.IsPositionValid(position))
                 {
                     SpawnUnit(position);
+                }
+            }
+        }
+        
+        private void HandleRightClick()
+        {
+            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+            
+            if (Physics.Raycast(ray, out RaycastHit hit, 100f, _unitLayer))
+            {
+                if (hit.collider.TryGetComponent<UnitFacade>(out var unit))
+                {
+                    RemoveUnit(unit);
                 }
             }
         }
@@ -63,6 +86,12 @@ namespace UnitPlacement.Presentation
            }
 
            unit.transform.position = position;
+        }
+        
+        private void RemoveUnit(UnitFacade unit)
+        {
+            _registry.Unregister(unit);
+            Destroy(unit.gameObject);
         }
     }
 }

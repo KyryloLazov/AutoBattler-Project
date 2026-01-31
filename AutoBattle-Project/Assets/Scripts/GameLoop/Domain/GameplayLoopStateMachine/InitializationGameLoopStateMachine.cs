@@ -1,6 +1,7 @@
 using GameLoop.Domain.GameplayLoopStateMachine.States;
 using UnitPlacement.Domain;
 using UnitPlacement.Presentation;
+using Units.Domain;
 
 namespace GameLoop.Domain.GameplayLoopStateMachine
 {
@@ -14,15 +15,18 @@ namespace GameLoop.Domain.GameplayLoopStateMachine
         private ResultState _resultState;
         private PlacementModel _placementModel;
         private PlacementPresenter _placementPresenter;
+        private UnitRegistry _unitRegistry;
 
         public InitializationGameLoopStateMachine(
             GameContextData contextData,
             PlacementPresenter placementPresenter,
-            PlacementModel placementModel)
+            PlacementModel placementModel,
+            UnitRegistry unitRegistry)
         {
             ContextData = contextData;
             _placementPresenter = placementPresenter;
             _placementModel = placementModel;
+            _unitRegistry = unitRegistry;
 
             Initialize();
         }
@@ -30,7 +34,8 @@ namespace GameLoop.Domain.GameplayLoopStateMachine
         private void Initialize()
         {
             _battleState = new BattleState(ContextData, this);
-            _placementState = new PlacementState(ContextData, this, _placementModel, _placementPresenter);
+            _placementState = new PlacementState(ContextData, this, _placementModel, 
+                _placementPresenter, _unitRegistry);
             _resultState = new ResultState(ContextData, this);
             
             StateMachine = new StateMachine(_placementState, _battleState, _resultState);

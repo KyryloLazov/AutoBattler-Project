@@ -18,7 +18,7 @@ namespace Units.Domain.LogicStrategy.Strategies
                 new UnitIdleState(fsm, facade, targetStrategy),
                 new UnitMoveState(fsm, facade, targetStrategy),
                 new UnitAttackState(fsm, facade, targetStrategy),
-                new UnitDeadState(fsm, facade, targetStrategy)
+                new UnitDeadState(fsm, facade, targetStrategy, fsm.UnitRegistry)
             };
         }
 

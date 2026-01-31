@@ -14,6 +14,7 @@ namespace Units.Domain
         public float MoveSpeed;
         public float Damage;
         public float AttackCooldown;
+        public float LastAttackTime;
     
         public UnitRuntimeData(UnitStatsConfig config)
         {
@@ -25,6 +26,7 @@ namespace Units.Domain
             MoveSpeed = config.MoveSpeed;
             Damage = config.Damage;
             AttackCooldown = config.AttackCooldown;
+            LastAttackTime = 0;
         }
     }
 }
